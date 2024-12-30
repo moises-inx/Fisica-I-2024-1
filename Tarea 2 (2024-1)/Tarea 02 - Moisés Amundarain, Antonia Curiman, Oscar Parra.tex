@@ -1,0 +1,379 @@
+\documentclass[12pt,tikz,border=3.14mm]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{compat=1.17}
+\usepackage[colorlinks]{hyperref}
+\usepackage{graphicx}
+\begin{document}
+\title{Tarea 02 - Física I (S1 - 2024)}
+\author{Moisés Amundarain, Antonia Curiman, Oscar Parra}
+% Recordar poner y modificar la fecha
+\maketitle
+\newpage
+\tableofcontents
+\newpage 
+\section{Problema 2 - Guía 05}
+	Dado un cuerpo que se mueve de manera tal que su posición, velocidad y aceleración evolucionan en el tiempo como:
+		\begin{align*}
+			\vec{r}(t) &= x(t), \hat{i}, 	&	 \vec{v}(t) &=v_{x}(t)\hat{i} & \vec{a}(t) &= a_{x}(t) \hat{i}. 
+		\end{align*}
+	\subsection*{Ejercicios}
+		\begin{enumerate}[a), leftmargin=1cm]
+			\item Se define el desplazamiento temporal en el tiempo $t_{i}$ y $t_{f}$ como $\Delta t := t_{f} - t_{i}$, el desplazamiento espacial como $\Delta \vec{r} := \vec{r}(t_{f}) - \vec{r} (t_{i}) $, la velocidad media como $\vec{v}_{m} := \frac{\Delta \vec{r}}{\Delta t}$ y la rapidez media como $v_{m} = \frac{\Delta s}{\Delta t}$, donde $\delta s$ es la distancia recorrida en dicho intervalo. Complete la siguiente tabla:
+			\begin{center}
+		
+				\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+					\hline 
+					$t_{i}$(s) &  $t_f$(s) & $\Delta t$(s)  & $\vec{r}(t_{i})$(m) & $\vec{r}(t_{f})$(m) & $\Delta \vec{r}$(m) & $\vec{v}_{m}$(m/s) & $\Delta s$(m) & $v_{m}$(m/s)  \\ \hline
+					\color{blue} 0.00 & \color{blue} 2.00 &  2.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ \hline
+					\color{blue} 2.00 & \color{blue} 4.00 & 2.00 & 0 & 6.00 & 6.00 & 3.00 & 6.00 & 3.00 \\ \hline
+					\color{blue} 4.00 & \color{blue} 8.00 & 4.00 & 6.00 & 8.00 & 2.00 & 0.50 & 2.00 & 0.50 \\ \hline
+					\color{blue} 8.00 & \color{blue} 10.00 & 2.00 & 8.00 & 8.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ \hline
+					\color{blue} 10.00 & \color{blue} 13.00 & 3.00 & 8.00 & $-0.69$ & $-8.69$ & $-2.89$ & $-8.67$ & $	-2.89$ \\ \hline
+					\color{blue} 13.00 & \color{blue} 15.00 & 2.00 & $-0.69$ &$-6.69$& $-7.38$ & $-3.690$ & $-7.380$ & $ -3.69$ \\ \hline
+					\color{blue} 15.00 & \color{blue} 17.00 & 2.00 & $-6.69$ & $-6.69$ & 0.00 & 0.00 & 0.00 & 0.00 \\ \hline
+				\end{tabular} 
+				
+			\end{center}
+\newpage
+			\item En la siguiente grilla, esboce $x(t)$ para $t \in [0,17]$ s.
+				\begin{center}
+				
+				\begin{tikzpicture}
+  \begin{axis}[
+    xlabel={Tiempo (s)},
+    ylabel={$x(t)$},
+    title={Gráfico de $x(t)$},
+    grid=major,
+    width=12cm,
+    height=8cm,
+    legend style={at={(0.5,-0.2)},anchor=north}
+  ]
+  
+  \addplot[blue, domain=0:2, samples=100] {0};
+
+  
+  \addplot[red, domain=2:4, samples=100] {(x-2) + (x-2)^2};
+  
+  
+  \addplot[green, domain=4:8, samples=100] {0.50*(x-4) + 6.00};
+  
+  
+  \addplot[cyan, domain=8:10, samples=100] {8.00};
+  
+  
+  \addplot[orange, domain=10:13, samples=100] {0.10*(x-10) - (x-10)^2 + 8.00};
+  
+  
+  \addplot[purple, domain=13:15, samples=100] {-3.00*(x-13) - 0.69};
+  
+  
+  \addplot[magenta, domain=15:17, samples=100] {-6.69};
+  
+  
+  \end{axis}
+\end{tikzpicture}
+			\end{center}
+			\item Se define el cambio de velocidad como $\Delta \vec{v} := \vec{v}(t_{f})- \vec{v}(t_{i})$ y la aceleración media entre $t_i$ y $t_f$ como $\vec{a} := \Delta \vec{v} / \Delta t$.
+			
+			Completar la siguiente tabla:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline 
+					$t_{i}$(s) &  $t_{f}$(s) & $\Delta t$(s)  & $\vec{v}(t_{i})$(m/s) & $\vec{v}(t_{f})$(m/s) & $\Delta \vec{v}$(m/s) & $\vec{a}_{m}$(m/s) \\ \hline
+					\color{blue} 0.00 & \color{blue} 2.00 & 2.00 &0.00 & 1.00 & 1.00 & 0.50 \\ \hline
+					\color{blue} 2.00 & \color{blue} 4.00 & 2.00 &1.00  & 0.50 & $-0.50$ & $-0.25$ \\ \hline
+					\color{blue} 4.00 & \color{blue} 8.00 & 4.00 & 0.50 & 0.00 & $-0.50$ & $-0,125$ \\ \hline
+					\color{blue} 8.00 & \color{blue} 10.00 & 2.00 & 0.00 & 0.10& 0.10 &  0.05 \\ \hline
+					\color{blue} 10.00 & \color{blue} 13.00 & 3.00 & 0.10 & $-3.00$ & $-3.10 $ & $-1.03$ \\ \hline
+					\color{blue} 13.00 & \color{blue} 15.00 & 2.00 & $-3.00$  & 0.00 & $-3.00$ & $1.5$ \\ \hline
+					\color{blue} 15.00 & \color{blue} 17.00 & 2.00 & 0.00 & 0.00 & 0.00 & 0 \\ \hline
+				\end{tabular}	
+				
+			\end{center}
+\newpage
+			\item En la siguiente grilla, esboce $v_{x}(t)$ para $t \in [0,17]$ s.
+			\begin{center}
+			
+			
+				\begin{tikzpicture}
+  \begin{axis}[
+    xlabel={$t$ (segundos)},
+    ylabel={$x(t)$ (metros por segundos)},
+    xmin=0, xmax=16,
+    ymin=-7, ymax=5,
+    grid=both,
+    ]
+  
+ 
+  \addplot[domain=0:2, color=blue, samples=100]{0};
+  
+ 
+  \addplot[domain=2:4, color=red, samples=100]{1.00 + 2.00*(x - 2.00)};
+  
+ 
+  \addplot[domain=4:8, color=green, samples=100]{0.50};
+  
+
+  \addplot[domain=8:10, color=orange, samples=100]{0.00};
+  
+
+  \addplot[domain=10:13, color=brown, samples=100]{0.10 - 2.00*(x - 10.0)};
+  
+ 
+  \addplot[domain=13:15, color=purple, samples=100]{-3.00};
+  
+ 
+  \addplot[domain=15:16, color=magenta, samples=100]{0};
+  
+  \end{axis}
+\end{tikzpicture}
+
+  	\end{center}
+  	
+			\item En la siguiente grilla, esboce $a_{x}(t)$ para $t \in [0,17]$ s.
+			\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = {Tiempo (segundos)},
+    ylabel = {$a_x(t)$},
+    xtick = {0,2,4,8,10,13,15,17},
+    ytick = {-2,0,2},
+    xmin = 0, xmax = 18,
+    ymin = -3, ymax = 3,
+    no markers,
+    samples = 500,
+    title = {$a_x(t)$ para $t \in [0, 17]$ s},
+    tick label style={font=\small},
+    label style={font=\small},
+    title style={font=\small, align=center},
+    width=10cm,
+    height=6cm,
+    enlarge x limits={abs=0.5},
+    enlarge y limits={abs=0.5},
+]
+\addplot+[black, thick] coordinates {
+    (0,0) (2,0)
+    (2,2) (4,2)
+    (4,0) (8,0)
+    (8,0) (10,0)
+    (10,-2) (13,-2)
+    (13,0) (15,0)
+    (15,0) (17,0)
+};
+
+
+\addplot[
+    only marks,
+    mark=*,
+    mark options={scale=1,fill=red},
+    red,
+] coordinates {(0,0) (2,0) (4,0) (8,0) (10,0) (13,0) (15,0) (17,0)};
+\end{axis}
+\end{tikzpicture}
+			\end{center}
+	\newpage
+			\item En el gráfico de $x(t)$ versus \emph{t} identifique por tramo el tipo de movimiento y describa con palabras el movimiento completo del cuerpo.
+			 	\begin{itemize}
+			 		\item En el gráfico $x(t)$ versus \emph{t}, se puede apreciar que el tipo de movimiento varia según el tramo de la función, siendo en algunos tramos, por ejemplo en el tramo $0 \leq t < 2.00$ con movimiento uniformemente acelerado, sin embargo se puede apreciar que para otros tramos, como para $10.00 \leq t <13.00$, el tramo tiene un movimiento parabolico hacia arriba.
+			 	\end{itemize}
+		\end{enumerate}
+\section{Problema 9 - Guía 05}
+	En algún instante de tiempo se dispara verticalmente hacia arriba un proyectil con una rapidez de 200 m/s, al cabo de 4,00 s y desde el mismo punto, se lanza un segundo proyectil con la misma rapidez y apuntanto en la misma dirección. Eligiendo un sistema de referencia apropiado con el eje \emph{y} apuntando en la dirección perpendicular a la Tierra, esboce un esquema de lo sucedido y responda: 
+	\subsection*{Ejercicios}
+		\begin{enumerate}[a),leftmargin=1cm]
+			\item ¿Cuáles son las condiciones iniciales de ambos proyectiles?
+				\begin{itemize}
+					\item Identificando al proyectil 1 como: $\vec{p_1}$, y al proyectil dos como: $\vec{p_2}$, se puede decir que ambos proyectiles se encuentran en reposo en un tiempo $t_0$, tienen una misma rapidez $\vec{r_0} = 0$, apuntando a la misma dirección y se deduce que ambos tienen el mismo peso.
+				\end{itemize}
+			\item Identificar explícitamente el tipo de movimiento de cada proyectil y determine las ecuaciones de evolución en cada caso.
+				\begin{itemize}
+					\item Según los proyectiles definidos anteriormente $\vec{p_1}$ y $\vec{p_2}$, se puede idectificar que el tipo de movimiento que expereimentan los dos proyectiles corresponde a un MRUA (movimiento rectilíneo uniformemente acelerado), con movimiento parabólico, ya que al inicio, al ser lanzados, la velocidad de $\vec{p_1}$ y $\vec{p_2}$ va en aumento, pero al llevar a su altura máxima ($h_{\rm{max}}$), la velocidad de los dos cuerpos va disminuyendo con el paso del tiempo (\emph{t}).
+					
+					Por consecuencia de lo anterior, las ecuaciones de cada proyectil están dadas por:
+						\begin{enumerate}[1)]
+							\item Las ecuaciones del movimiento parabólico están dadas por:
+								\begin{align*}
+									\vec{p_1} &= p_1 \cdot \cos(\Phi) \cdot \hat{i} + p_1 \cdot \sin(\Phi) \cdot \hat{j}, & \Phi & \in [0, 2\pi[ \\
+									\vec{p_2} &= p_2 \cdot \cos(\Upsilon) \cdot \hat{i} + p_2 \cdot \sin(\Upsilon) \cdot \hat{j}, & \Upsilon & \in [0, 2\pi[ 
+								\end{align*}
+							\item Las ecuaciones de evolución de los proyectiles están descritas por: 
+								\begin{align*}
+									\vec{p_1}(t) &= \vec{v_0} + \vec{a}(t-t_0) \\
+									\vec{p_2}(t) &= \vec{v_0} + \vec{a}(t-t_0)
+								\end{align*}
+									\begin{itemize}[leftmargin=1cm]
+										\item Donde $v_0$, corresponde a la velocidad inicial y $t_0$ al tiempo inicial del proyectil.
+									\end{itemize}
+							\item Las ecuaciones de velocidad de los proyectiles seria:
+								\begin{align*}
+									\vec{p_1}(t) &= v_0 -gt \\
+									\vec{p_2}(t) &= v_0-g(t-4)
+								\end{align*}		
+								
+									\begin{itemize}[leftmargin=1cm]
+										\item Considerar que $g \approx 9.80 $(m/$\rm{s}^{2}$)
+									\end{itemize}																
+						\end{enumerate}
+						
+				\end{itemize}
+				%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			\item Analizar si los proyectiles se encuentran en algún momento y en tal caso, ¿cuánto tiempo tardan en encontrarse?, ¿a qué altura lo hacen? y ¿cuál es la velocidad de cada proyectil en dicho momento?
+				\begin{itemize}
+					\item Del primer proyectil, se tienen los siguientes calculos: 
+						\begin{align*}
+							t_{\rm{max}} & = \frac{200 \, \rm{ m/s}}{9.80 \, \rm{m/s}^{2}} \approx 20.41 \, \rm{m/s} \\
+							h&= 200 \cdot 20.41 - \frac{1}{2} \cdot 9.80 \cdot (20.41)^{2} \\
+							& = 2040.82 \rm{m} \\
+							h_{\rm{max}} &= 200.16.41- \frac{1}{2} \cdot (16.41)^{2} \\ 
+							& = 1961.49 \rm{m}
+						\end{align*}	
+							\begin{itemize}
+								\item Dado $v_f = v_i + gt$, donde $g \approx -9.80$ m/s, se tiene que:
+									\begin{align*}
+										v_f & = 200 \rm{m/s} - 9.80 \rm{m/s} \cdot 16.41 \rm{s} \\
+											& = 38.822 \rm{m/s}
+									\end{align*}
+							\end{itemize}
+	\newpage											
+			\item Del segundo proyectil se desprende lo siguiente: 
+				\begin{align*}
+					t_{\rm{max}} = \frac{200 \, \rm{ m/s}}{9.80 \, \rm{m/s}^{2}} \approx 20.41 \, \rm{m/s}
+				\end{align*}
+					\begin{itemize}
+						\item Dado $v_f = v_i + gt$, donde $g \approx -9.80$ m/s, se tiene que:
+							\begin{align*}
+								v_f & = 200 \rm{m/s} - 9.80 \rm{m/s} \cdot 4 \rm{s} \\
+									& = 60.8 \rm{m/s}
+							\end{align*}
+					\end{itemize}
+			\item De los calculos anteriores se concluye que los proyectiles $\vec{p_1}$ y $\vec{p_2}$ se encuentran a los 16.41 segundos después de ser lanzado el proyectil $\vec{p_2}$, además $\vec{p_1}$ y $\vec{p_2}$ se interceptan a una altura $h = 1961,49$. Tambíen, se puede deducir que al toparse los proyectiles, $\vec{p_1}$ tiene una $\vec{v} = 60.8$ m/s y el segundo proyectil tiene una velocidad de $\vec{v} = 38.822$
+			\end{itemize}
+				
+			\item ¿Cuánto tiempo tarda el primer proyectil en alcanzar su altura máxima y cuál es dicha altura? ¿Y el segundo proyectil?
+\newpage
+			\item Esboce las componentes $y(t), v_{y}(t)$ y $a_{y}(t)$ señalando el movimiento de cada proyectil.
+			\begin{center}
+			
+			
+			\begin{tikzpicture}
+\begin{axis}[
+    title={Movimiento de los proyectiles},
+    xlabel={Tiempo (s)},
+    ylabel={Posición, Velocidad, Aceleración},
+    xmin=0, xmax=10,
+    ymin=-10, ymax=30,
+    legend pos=north west,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+
+\addplot[
+    domain=0:10,
+    samples=50,
+    smooth,
+    thick,
+    blue,
+    mark=square*,
+    mark size=3pt,
+] 
+{20*x - 0.5*9.8*x^2}; 
+\addlegendentry{$y_1(t)$}
+
+
+\addplot[
+    domain=4:10,
+    samples=50,
+    smooth,
+    thick,
+    red,
+    mark=triangle*,
+    mark size=3pt,
+] 
+{20*(x-4) - 0.5*9.8*(x-4)^2}; 
+\addlegendentry{$y_2(t)$}
+
+
+\addplot[
+    domain=0:10,
+    samples=50,
+    smooth,
+    thick,
+    green,
+    mark=o,
+    mark size=3pt,
+] 
+{20 - 9.8*x}; 
+\addlegendentry{$v_1(t)$}
+
+
+\addplot[
+    domain=4:10,
+    samples=50,
+    smooth,
+    thick,
+    orange,
+    mark=star,
+    mark size=3pt,
+] 
+{20 - 9.8*(x-4)}; 
+\addlegendentry{$v_2(t)$}
+
+
+\addplot[
+    domain=0:10,
+    samples=2,  
+    dashed,
+    black,
+    thick,
+] 
+{-9.8}; 
+\addlegendentry{$a(t)$}
+
+\end{axis}
+\end{tikzpicture}
+				\end{center}				
+		\end{enumerate}
+\section{Problema 3 - Guía 06}
+	Un bloque de masa $m = 9.47$ kg está \textbf{sostenido en equilibrio} por cuerdas que ejercen tensiones con magnitudes $T_{1} \text{ y } T_{2}$, las cuales forman ángulos $\alpha = 51.6^{\circ}$ y $\beta = 38.7^{\circ} $ respectivamente.
+		\subsection*{Ejercicios}
+			\begin{enumerate}[a),leftmargin=1cm]
+				\item Dibujar un diagrama de cuerpo libre del bloque.
+				\item Plantear las ecuaciones de movimiento del bloque, formulando la Ley de Newton correspondiente e indicando explícitamente cuál Ley se está escribiendo.
+				\item Determinar las magnitudes de las tensiones y las fuerzas de tensión en las cuerdas.
+			\end{enumerate}
+		
+\section{Problema 10 - Guía 10}
+	Un bloque de masa $m = 12.7$ kg se deposita sobre una superficie inclinada rugosa (hay fricción entre el cuerpo y la superficie) que forma un ángulo $\alpha = 35.9^{\circ}$ con relación a la horizontal.
+			\subsection*{Ejercicios}
+			
+				\subsubsection*{Si el bloque permanece en reposo}
+					\begin{enumerate}[a),leftmargin=1cm]
+						\item Dibujar un diagrama de cuerpo libre del bloque.
+						\item Plantear las ecuaciones de movimiento del bloque, formulando la Ley de Newton correspondiente e indicando explícitamente cuál Ley se está escribiendo.
+						\item Determinar la fuerza de roce estática $\vec{f}_{s}$ necesaria para que el bloque permanezca en reposo.
+					\end{enumerate}
+				\subsubsection*{Si el bloque está en reposo a punto de descender}
+					\begin{enumerate}[a),leftmargin=1cm]
+						\item Dibujar un diagrama de cuerpo libre.
+						\item Plantear las ecuaciones de movimiento del bloque, formulando la Ley de Newton correspondiente e indicando explícitamente cuál Ley se está escribiendo.
+						\item Determinar el ceficiente de roce estático $\mu_{s}$.
+					\end{enumerate}
+				\subsubsection*{Si el bloque desciende aceleradamente}
+					Con una aceleración de magnitud $a = || \vec{a} || = 2.94 m/s^{2}$
+						\begin{enumerate}[a),leftmargin=2cm]
+							\item Dibujar un diagrama de cuerpo libre.
+							\item Plantear las ecuaciones de movimiento del bloque, formulando la Ley de Newton correspondiente e indicando explícitamente cuál Ley se está escribiendo.
+							\item Determinar el coeficiente de roce estático $\mu_{k}$.
+							\item Si inicialmente el bloque está en reposo a una distancia $d = 12.4$ m de la base del plano, determinar el tiempo que le toma en descender.
+						\end{enumerate}
+\end{document}

@@ -1,0 +1,243 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[colorlinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\begin{document}
+\title{Apuntes sobre vectores}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\section{Magnitudes}
+	\subsection{Magnitudes escalares}
+		Están dadas por algún valor numérico, es decir, tienen \color{red} sólo magnitud \color{black}.
+	\subsection{Magnitudes vectoriales}
+ 	Son aquellas que tienen \color{red} magnitud, dirección y sentido \color{black}.
+\section{Sistema de coordenadas polares}
+Solo se necesita un eje para realizar un sistema de coordenadas polares.
+
+Los ángulos del sistema polar siempre tomarán un valor positivo, si se miden de forma antihorario y toman valores negativos si se miden en sentido horario.
+
+Recordar que: 
+	\begin{enumerate}[a), leftmargin=2cm]
+		\item $0 \pi  \text{ rad} = 0^{\circ}$
+		\item $\frac{\pi}{2}  \text{ rad} = 90^{\circ}$
+		\item $1 \pi  \text{ rad} = 180^{\circ}$
+		\item $\frac{3}{2} \pi \text{ rad} = 270^{\circ}$
+	\end{enumerate}
+
+Para calcular puntos de una circunferencia, se puede:
+	\begin{align*}
+		& x \text{ rad} = y^{\circ} \times \frac{\pi \text{ rad}}{180^{\circ}} \\ 
+		& y^{\circ} = x \text{ rad} \times \frac{180^{\circ}}{\pi \text{ rad}}.
+	\end{align*}	 
+\newpage
+\section{Vectores unitarios}
+ Son aquellos que tienen magnitud igual a 1, se suelen denotar como $\hat{j}:\equiv (0,1) \text{ o } \hat{i} :\equiv (1,0)$
+ 
+ \color{red}Siempre \color{black} se ponen a la hora de escribir un vector.
+\section{Representación gráfica de vectores}
+\begin{minipage}{0.55\textwidth}
+	Def: Un vector es un objeto geométrico $ \in \mathbb{R}^{2}$, donde poseen: 
+	\begin{itemize}[leftmargin=2cm]
+		\item Magnitud.
+		\item Dirección.
+	\end{itemize}
+	
+De esta forma, dado un punto \emph{z} de coordenadas (x, y), se puede escribir el vector $\vec{z}$ de la forma: 
+	\begin{align*}
+		\vec{z} =x\cdot \hat{i}+y \cdot \hat{j}.
+	\end{align*}
+
+\end{minipage}	
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=0.45]
+\foreach \x in {-3,-2,...,5}
+\draw [dashed,color=black!40!white] (\x,-2.5) --(\x,5.5) ;
+
+\foreach \y in {-2,-1,...,5}
+\draw [dashed,color=black!40!white] (-3.6,\y) --(5.5,\y) ;
+
+{\tiny
+\foreach \x in {-3,-2,...,-1}
+\draw (\x,0) node[anchor=north] {\colorbox{white}{$\x$}};
+
+\foreach \y in {1,2,...,5}
+\draw (\y,0) node[anchor=north] {\colorbox{white}{$\y$}};
+
+\foreach \x in {-2,-1,...,-1}
+\draw (0,\x) node[anchor=east] {\colorbox{white}{$\x$}};
+
+\foreach \y in {1,2,...,5}
+\draw (0,\y) node[anchor=east] {\colorbox{white}{$\y$}};
+}
+
+\draw [-latex,line width=1pt] (-4,0)--(7,0) node[below] {{\footnotesize $x$}};
+\draw [-latex,line width=1pt] (0,-3)--(0,6) node[left]{{\footnotesize $y$}};
+
+\draw [-stealth,line width=2pt,color=red] (0,0)--node[below=7pt,fill=white]{$\vec{p}$}(3,4);
+\filldraw [color=black](3,4) circle (2pt) node[right] {$ P$};
+
+\draw [-stealth,line width=2pt,color=black!50!green] (0,0)-- node[below=2pt,fill=white]{$\vec{q}$}(4,-1);
+%\draw [-stealth,line width=2pt,color=black!50!green] (0,0)-- node[below=2pt,fill=white]{}(4,-1);
+\filldraw [color=black](4,-1) circle (2pt) node[below] {$ Q$};
+
+\draw [-stealth,line width=2pt,color=blue] (0,0)-- node[below=4pt,fill=white]{$\vec{r}$} (-3,3) ;
+%\draw [-stealth,line width=2pt,color=blue] (0,0)-- node[below=4pt,fill=white]{}(-3,3) ;
+\filldraw [color=black](-3,3) circle (2pt) node[above] {$ R$};
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+Además, notar que los vectores se pueden trasladar.
+
+
+\section{Coordenadas polares a rectangulares}
+\begin{minipage}{0.5\textwidth}
+Si se conoce la magnitud de \emph{r}, y el ángulo $\Phi$ (medido con respecto al eje $x^{+}$), las coordenadas cartesianas con las polares se relacionan tal que:
+	\begin{align*}
+		& \cos\Phi = \frac{x}{r} \Longrightarrow x=r 
+\cos \Phi \\ 
+& \sin \Phi = \frac{y}{r} \Longrightarrow y = r \sin \Phi.
+	\end{align*}
+		\begin{itemize}[leftmargin=2cm]
+			\item Notar que la magnitud de un vector siempre será un número positivo.
+			\item Si $|| \vec{r} || \equiv 0$, entonces su ángulo $\Phi $ no está bien definido.
+		\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=0.45]
+
+\foreach \r in {1.5,3,...,5}
+\draw [dashed,color=black!40!white] (0,0) circle (\r);
+
+\filldraw[fill=green!20,draw=green!50!black] (0,0) --  (1.2,0) arc (0:120:1.2) -- cycle;
+
+\draw [-latex,line width=1pt] (0,0)--(6,0) node[anchor=north] {{\footnotesize $x$}};
+
+{\tiny
+\foreach \x in {1,2,...,3}
+\draw (1.5*\x,0) node[below] {\colorbox{white}{$\x$}};
+}
+
+%
+\draw [line width=2pt,color=red] (0,0)--(120:4.5);
+\filldraw [color=black](120:4.5) circle (2pt) node[left] {$ P$};
+
+\draw[-stealth,color=green!50!black] (1.2,0) arc (0:120:1.2);
+\draw [color=black](50:0.6) node {\footnotesize $120^\circ$};
+\end{tikzpicture}
+
+\end{center}
+
+\end{minipage}
+De las razones trigonométricas anteriores se puede deducir lo siguiente: 
+	\begin{align*}
+		\vec{r}=x \cdot \hat{i} + y \cdot \hat{j} \\ \vec{r}=+ r \cdot \cos \Phi \cdot \hat{i}  + r\cdot \sin \Phi \cdot \hat{j}.
+	\end{align*}
+		\begin{itemize}[leftmargin=2cm]
+			\item Observar que se cumple para todo ángulo $\Phi \in [0,2 \pi]$.
+ 		\end{itemize}
+
+Por otro lado, si se conoce $ \vec{r} = x \cdot \hat{i} + y \cdot \hat{j}$ y se quiere conocer la magnitud y ángulo de dirección, se tiene que:
+	\begin{align*}
+		||\vec{r}|| := r = \sqrt{x^{2}+y^{2}}.
+	\end{align*}
+	
+Recordando que también se puede tener que: 
+	\begin{align*}
+		\tan \beta = \left | \frac{y}{x} \right| \Longrightarrow \beta = \arctan \left | \frac{y}{x} \right|.
+	\end{align*}
+\section{Espacio vectorial}
+Observar que las \color{red}operaciones \color{black} de vectores cumplen todos los axiomas de cuerpo vistos anteriormente en AyT, ver: \href{https://udeconce-my.sharepoint.com/:b:/g/personal/mamundarain2023_udec_cl/Ec3OIo1hU-lOiTwNtSQbrwYBVyos61CIGhZd4g7u684kJQ?e=Ibf6eY}{Clase 4 de AyT}.
+\subsection{Base vectorial}
+Dado un plano en $\mathbb{R}^{3}$, se tiene que un punto \emph{P} tiene coordenadas (x, y, z) $\in \mathbb{R}^{3}$.
+
+Además, se definen los vectores unitarios de $\mathbb{R}^{3}$ como:
+	\begin{itemize}[leftmargin=2cm]
+		\item $\hat{i}:=(1,0,0)$
+		\item $\hat{j}:=(0,1,0)$
+		\item $\hat{k}:=(0,0,1)$
+	\end{itemize}
+
+De esta forma se define como el vector $\vec{p}$ como:
+	\begin{align*}
+		\vec{p}=x \cdot\hat{i}+ y\cdot \hat{j} + z \cdot \hat{k}.
+	\end{align*}
+	
+Donde la magnitud de $\vec{p}$ está dada por:
+	\begin{align*}
+		||  \vec{p} || = \sqrt{x^{2}+y^{2}+k^{2}}.
+	\end{align*}
+\newpage
+\subsection{Operaciones en $\mathbb{R}$}
+Dado $\color{red}\vec{v}=x_1 \cdot\hat{i}+ y_1\cdot \hat{j} + z_1 \cdot \hat{k} \land \color{blue}\vec{r}=x_2 \cdot\hat{i}+ y_2\cdot \hat{j} + z_2 \cdot \hat{k} \color{black}$ se tiene que:
+	\begin{enumerate}[a), leftmargin=2cm]
+		\item Suma de vectores:
+			\begin{align*}
+				\vec{v} + \vec{r}=(x_1+x_2)\hat{i}+(y_1+y_2)\hat{j}+(z_1+z_2)\hat{k}.
+			\end{align*}
+		\item Multiplicación de vector por escalar:
+			\begin{align*}
+				a \cdot \vec{v}= a\cdot x_1 \cdot \hat{i} + a \cdot y_1 \cdot \hat{j} + a \cdot z_1 \cdot \hat{k}.
+			\end{align*}
+				\begin{itemize}
+					\item También, se puede definir como la multiplicación de un vector por escalar como:
+						\begin{align*}
+						a \cdot \vec{v}  = a \cdot || \vec{v} ||.
+						\end{align*}
+				\end{itemize}
+		\item Producto punto o escalar entre dos vectores.
+			\begin{itemize}
+				\item Sea $\vec{a} =x_{1} \cdot \hat{i} +y_{1} \cdot \hat{j} + z_{1} \cdot \hat{k}$, $\vec{b} = x_{2} \cdot \hat{i} + y_{2} \cdot \hat{j} + z_{2} \cdot \hat{k}$ y $c = \vec{a} \cdot \vec{b}$, se define \emph{c} como: 
+					\begin{align*}
+						c = x_{1} \cdot x_{2} + y_{1} \cdot y_{2} + z_{1} \cdot z_{2}.
+					\end{align*}
+				\item Notar que:
+					\begin{align*}
+						\vec{r} \cdot \vec{r} = x^{2} + y^{2} + z^{2} = || \vec{r} || = r^{2}.
+					\end{align*}
+			\end{itemize}
+	\end{enumerate}
+\section{Norma o magnitud de un vector en $\mathbb{R}^{3}$}
+Sea $\vec{a} = x \cdot \hat{i} + y \cdot \hat{j}  + z \cdot \hat{k}$, se define como magnitud de $\vec{a}$ como: 
+	\begin{align*}
+		a=||\vec{a}|| := \sqrt{x^{2} + y^{2} + z^{2}}.
+	\end{align*}
+\subsection{Propiedades de la norma o magnitud}
+Dado $\vec{a} = x \cdot \hat{i} + y \cdot \hat{j}  + z \cdot \hat{k}$, con $x,y,z \in \mathbb{R}$, se define que:
+	\begin{align*}
+		& ||\vec{a}|| \equiv 0 \iff \vec{a}=\vec{0} \\
+		& || w \cdot \vec{a} || = |w| \cdot ||  \vec{r} ||.
+	\end{align*}
+
+Donde $|w|$, es el valor absoluto de $w$.
+\section{Producto vectorial}
+Dado dos vectores $\vec{a} \land \vec{b}$, se define como producto vectorial como:
+	\begin{align*}
+		\vec{c} = \vec{a} \times \vec{b} := || \vec{a} || \cdot ||  \vec{b} || \cdot   \sin \Phi \cdot \hat{e}.
+	\end{align*}
+
+  $\hat{e}$ es un vector unitario.
+
+De lo anterior se desprende que si $\Phi = 0 \lor \Phi = \pi$, entonces, $\vec{a} \times \vec{b} = \vec{0}$.
+
+Por otro lado, si tenemos dos vectores $\vec{a} =x_1 \cdot \hat{i} +y_1 \cdot \hat{j} + z_1 \cdot \hat{k}$, $\vec{b} = x_2 \cdot \hat{i} + y_2 \cdot \hat{j} + z_2 \cdot \hat{k}$, se define como $\vec{c} = \vec{a} \times \vec{b}$, donde:
+	\begin{align*}
+		\vec{c}= (y_1 \cdot z_2 - z_1 \cdot y_2) \hat{i} - (x_1 \cdot z_2 - z_1 \cdot x_2) \hat{j} +(x_1 \cdot y_2 - y_1  \cdot x_2)\hat{k}.
+	\end{align*}
+	
+Notar que: 
+	\begin{align*}
+		(\vec{a} \times \vec{b}) & = \perp \vec{a} \; \land \perp \vec{b} \\ 
+		\vec{b} \times \vec{a} & = - \vec{a} \times \vec{b}
+	\end{align*}
+\end{document}
